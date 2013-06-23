@@ -1,8 +1,24 @@
-Whale Detection Challenge Code
+Whale Detection Redux Challenge Code
 
-This code is a hacked-up version of the code pulled from https://github.com/nmkridler/moby
+This code is based on code pulled from https://github.com/nmkridler/moby
+which was code used for the first Kaggle Whale Challenge.
+This was used as a starting point for an entry in the 
+the second Kaggle Whale Redux Challenge.
 
-It uses the following python packages:
+Modifications include:
+- Added time between last clip and the current clip as a feature
+- To capture serial correlation, the algorithm makes test-set
+  preditions, then uses an average of 32/64 'local' predictions
+  to provide a 'temporally local' estimation of a whale call
+  (since whale upcalls occur in bursts/clusters)
+- Changed cross validation folds from random to non-random
+- Various modifications to allow the old code to use easily the 
+  new dataset, including: 
+  - Seperated templates from clips (here, templates=old clips, clips=new data)
+  - Added data-preprocessing scripts to 0-pad clips to the same length
+
+
+This code uses the following python packages:
 Numpy/Scipy
 Pandas
 OpenCV
